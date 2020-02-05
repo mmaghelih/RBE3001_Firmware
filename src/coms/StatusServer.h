@@ -8,9 +8,16 @@
 #ifndef SRC_COMS_STATUSSERVER_H_
 #define SRC_COMS_STATUSSERVER_H_
 #include <PacketEvent.h>
+#include <PID_Bowler.h>
+#include <PacketEvent.h>
+#include "../drivers/MyPid.h"
+#include <cmath>
 class StatusServer: public PacketEventAbstract {
+	private:
+  PIDimp ** myPidObjects;    // array of PidServers - one for each joint
+  int myPumberOfPidChannels;
 public:
-	StatusServer();
+	StatusServer(PIDimp ** pidObjects, int numberOfPidChannels);
 	virtual ~StatusServer();
 	  //User function to be called when a packet comes in
 	  // Buffer contains data from the packet coming in at the start of the function
