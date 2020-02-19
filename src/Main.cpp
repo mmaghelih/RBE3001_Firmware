@@ -32,7 +32,7 @@ HIDSimplePacket coms;      // HID packet handlers
 
 // The following array contains the "home" positions (in encoder ticks) for each
 // of the robot's joints 
-float homePosition[3] = {2963.00,2958.00,2020.75};
+float homePosition[3] = {2963.00,2958.00+42,2020.75};
 
 void runPid() {
 	// update all positions fast and together
@@ -165,12 +165,12 @@ int main() {
 		// The following code prints out debug statements.
 #ifdef DEBUG_
 // print encoder values for each joint
-			printf("\r\nEncoder Value = %f , %f , %f", pid[0]->GetPIDPosition(),
-					pid[1]->GetPIDPosition(), pid[2]->GetPIDPosition());
-
-			// print load cell readings
-			printf(" Setpoint = %f , %f , %f", pid[0]->state.SetPoint,
-					pid[1]->state.SetPoint, pid[2]->state.SetPoint);
+//			printf("\r\nEncoder Value = %f , %f , %f", pid[0]->GetPIDPosition(),
+//					pid[1]->GetPIDPosition(), pid[2]->GetPIDPosition());
+//
+//			// print load cell readings
+//			printf(" Setpoint = %f , %f , %f", pid[0]->state.SetPoint,
+//					pid[1]->state.SetPoint, pid[2]->state.SetPoint);
 
 #endif // DEBUG
 

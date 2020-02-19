@@ -21,6 +21,8 @@ void PidConfigServer::event(float * packet)
       float kin = packet[(i*3)+1];
       float kdn = packet[(i*3)+2];
       
+      printf("\r\n %i PIDgains = %f , %f , %f", i, kpn, kin, kdn);
+
       // Set the PID constants
       myPidObjects[i]->setPIDConstants(kpn, kin, kdn);
     } 
